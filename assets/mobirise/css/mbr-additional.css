@@ -2734,6 +2734,9 @@ section.lazy-placeholder:after {
   display: flex;
   flex-direction: column-reverse;
 }
+.cid-rVuogFVynF .mbr-timeline-title {
+  text-align: right;
+}
 .cid-rVlz9TetXV .navbar {
   padding: .5rem 0;
   background: #000000;
