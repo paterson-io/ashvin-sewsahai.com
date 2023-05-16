@@ -438,6 +438,52 @@
     </div>
 </section>
 
+<section class="features3 cid-rVrHjEHTS7" id="features3-y">
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+            <script>
+                var document_name = "TEST";
+                var VWO_FOLDER_ID = "1uBhoL6efagM4Zh2fYAT6ftVueAZBBl0r";
+                var HAVO_FOLDER_ID = "1UWO1YA5o4TnGvb4-E6vFrvn48IXl-tzU";
+                  var SO1_FOLDER_ID = "1HvSuSTeTPEvkf2nIgk31I8ITbPAycIdn";
+                  var SO2_FOLDER_ID = "1P5Q9EPdnsD3dVnUFxCnahUP_nqPOna9s";
+                //   var SO3_FOLDER_ID = "1k_7817pSk6bpfKU9xe0WfPoxtzkgmSV-";
+                var SO3_FOLDER_ID = "1JxEQm5ErkG__vydW9cu5Qm3bFKKncia9";
+        
+                   // Get files in VWO FOLDER
+                axios.get("https://www.googleapis.com/drive/v3/files?q=%27" + SO3_FOLDER_ID + "%27+in+parents&key=AIzaSyC6LtdO9YukzV9PfgRppNms9uAJOvqynGI")
+                .then(response => {
+                      var files = response.data.files;
+                      var document_id = 0;
+                      for (index = 0; index < files.length; index++) {
+                        console.log(files[index].name);
+                        if (index % 3 === 0) {
+                          document_id += 1;
+                          var document_container = '<div id="so3-documents-' + document_id + '" class="media-container-row" mbr-cards="bootstrap">';
+                          document.getElementById("so3-documents-container").innerHTML += document_container;
+                        }
+                          var file_id = files[index].id;
+                          var file_viewing_url = "https://drive.google.com/file/d/" + file_id;
+                          var filename_array = files[index].name.split(".");
+                          var file_ext = filename_array.pop().toUpperCase();
+                          var filename = filename_array.join();
+                        document.getElementById("so3-documents-" + document_id).innerHTML += '<div class="card p-3 col-12 col-md-6" mbr-class="{\'col-lg-3\': cardsAmount == \'4\', \'col-lg-4\': cardsAmount == \'3\'}"> <div class="card-wrapper"> <div class="card-img" mbr-if="showImage"> <img src="https://i.imgur.com/J9UUizW.jpg" alt="Mobirise"> </div> <div class="card-box"> <h4 class="card-title mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showTitle" data-app-selector=".card-title">' + filename + '</h4> <p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text">File type: ' + file_ext + '</p> </div> <div mbr-buttons mbr-theme-style="display-4" class="mbr-section-btn text-center" mbr-if="showButtons" data-toolbar="-mbrBtnMove"> <a href="' + file_viewing_url + '" class="btn btn-primary"> DOWNLOAD </a> </div> </div> </div>';
+                    }
+                })
+                .catch(error => { console.error(error) });
+            </script>
+    
+      <div id="so3-documents-container" class="container documents-container">
+            <div id="so3-documents-0" class="media-container-row">
+            </div>
+        </div>
+    </section>
+    
+
 <section class="mbr-section content4 cid-s27YVISo7m" id="content4-1c">
 
     
